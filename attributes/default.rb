@@ -37,7 +37,7 @@ default['wordpress']['admin_email']="root@localhost.com"
 
 default['wordpress']['db']['name'] = "wordpressdb"
 default['wordpress']['db']['user'] = "wordpressuser"
-default['wordpress']['db']['pass'] = nil
+default['wordpress']['db']['pass'] = "oasis2"
 default['wordpress']['db']['prefix'] = 'wp_'
 default['wordpress']['db']['host'] = '127.0.0.1'
 
