@@ -119,7 +119,7 @@ else
   web_app "wordpress" do
     template "wordpress.conf.erb"
     docroot node['wordpress']['dir']
-    server_name 'slave.test.com'
+    server_name node['wordpress']['host_name']
     server_aliases node['wordpress']['server_aliases']
     enable true
   end
