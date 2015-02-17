@@ -26,6 +26,11 @@
 default['wordpress']['version'] = 'latest'
 default['wordpress']['host_name']="192.168.56.110"
 default['mysql']['server_root_password']='oasis'
+default['wordpress']['title']="test web site"
+default['wordpress']['admin_user']="wp_admin"
+default['wordpress']['admin_psw']="oasis"
+default['wordpress']['admin_email']="root@localhost.com"
+
 
 
 

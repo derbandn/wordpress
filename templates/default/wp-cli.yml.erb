@@ -1,8 +1,9 @@
 
-path: /var/www/wordpress
+path: <%= @wp_path %>
 core install:
- url: "http://192.168.56.110"
- title: "test wordpress site"
- admin_user: wp_admin
- admin_password: "oasis"
- admin_email: root@localhost.com
+ url: "http://<%= @wp_host_name %>"
+ title: <%= @title %> 
+ admin_user: <%= @admin_user %>
+ admin_password: <%= @admin_psw %>
+ admin_email: <%= @admin_email %>
+ 
