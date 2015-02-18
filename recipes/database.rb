@@ -27,8 +27,8 @@
   
 mysql_service 'default' do
   port '3306'
-  version '5.5'
-  bind_address '0.0.0.0'
+  version "#{node['wordpress']['db']['version']}"
+  bind_address "#{node['wordpress']['db']['host']}"
   data_dir '/wordpress_data'
   initial_root_password node['mysql']['server_root_password']
   Chef::Provider::MysqlService::Systemd

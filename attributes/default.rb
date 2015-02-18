@@ -37,9 +37,11 @@ default['wordpress']['wp-cli_url']="https://raw.githubusercontent.com/wp-cli/bui
 
 default['wordpress']['db']['name'] = "wordpressdb"
 default['wordpress']['db']['user'] = "wordpressuser"
-default['wordpress']['db']['pass'] = "oasis2"
+default['wordpress']['db']['pass'] = nil
 default['wordpress']['db']['prefix'] = 'wp_'
 default['wordpress']['db']['host'] = '127.0.0.1'
+default['wordpress']['db']['version']="5.5"
+
 
 default['wordpress']['server_aliases'] = [node['fqdn']]
 
