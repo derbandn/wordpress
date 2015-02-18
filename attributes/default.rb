@@ -30,8 +30,8 @@ default['wordpress']['title']="test web site"
 default['wordpress']['admin_user']="wp_admin"
 default['wordpress']['admin_psw']="oasis"
 default['wordpress']['admin_email']="root@localhost.com"
-
-
+default['wordpress']['wp-cli_path']="/usr/local/bin/wp"
+default['wordpress']['wp-cli_url']="https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar"
 
 
 
