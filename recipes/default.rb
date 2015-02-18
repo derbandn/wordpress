@@ -126,7 +126,7 @@ end
  include_recipe "wordpress::wp_cli"
  
  execute "security setup" do
-    command "setenforce enforced"    
+    command "setenforce enforcing"    
 end
 
 
