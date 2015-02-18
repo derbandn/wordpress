@@ -17,9 +17,25 @@
 # limitations under the License.
 #
 
-execute "security setup" do
-    command "setenforce permissive && iptables -F"    
+
+
+
+
+script "security setup" do
+  interpreter "bash"
+  user "root"
+  cwd "/tmp"
+  code <<-EOH
+    firewall-cmd --zone=public --add-port=3306/tcp
+    firewall-cmd --zone=public --add-port=80/tcp
+    firewall-cmd --zone=public --add-port=443/tcp
+    firewall-cmd --reload
+    
+    setenforce permissive
+    
+  EOH
 end
+
 
 
 include_recipe "php"
@@ -33,7 +49,7 @@ include_recipe "openssl"
 
 
 include_recipe "wordpress::database"
-
+# include_recipe "wordpress::security"
 
 ::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
 node.set_unless['wordpress']['keys']['auth'] = secure_password
@@ -108,6 +124,10 @@ end
 
 
  include_recipe "wordpress::wp_cli"
+ 
+ execute "security setup" do
+    command "setenforce enforced"    
+end
 
 
 
