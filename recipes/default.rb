@@ -96,7 +96,8 @@ template "#{node['wordpress']['dir']}/wp-config.php" do
     :nonce_salt       => node['wordpress']['salt']['nonce'],
     :lang             => node['wordpress']['languages']['lang']
   )
-  action :create
+  
+  action :create_if_missing
 end
 
 if platform?('windows')
