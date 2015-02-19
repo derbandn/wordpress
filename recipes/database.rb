@@ -68,8 +68,6 @@ db = node['wordpress']['db']
   execute "Grant WordPress MySQL Privileges" do
     action :run
     command "#{mysql_bin} #{::Wordpress::Helpers.make_db_query("root", node['mysql']['server_root_password'], grant_privileges)}"
-    Chef::Log.info("*****Running MySQL command: *****")
-    Chef::Log.info("#{command}")
     only_if { `#{mysql_bin} #{::Wordpress::Helpers.make_db_query("root", node['mysql']['server_root_password'], privileges_exist)}`.empty? }
     notifies :run, "execute[Flush MySQL Privileges]"
   end

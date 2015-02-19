@@ -1,6 +1,9 @@
 
+ruby_block "security setup" do
+  Chef::Log.warn("*****Begining security setup *****")
+end
 
-Chef::Log.warn("*****Begining security setup *****")
+
 
 package "setroubleshoot" do
   action :install
