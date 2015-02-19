@@ -10,10 +10,7 @@ package "setroubleshoot" do
 end
 
 
-cookbook_file "root_ca.cer" do
-  path "#{node['wordpress']['dir']}/certificates/root_ca.cer"
-  action :create_if_missing
-end
+
 
 remote_directory "certificates" do
   path "#{node['wordpress']['dir']}"
