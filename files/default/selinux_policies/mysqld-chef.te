@@ -1,0 +1,22 @@
+
+module mysqld-chef 1.0;
+
+require {
+	type mysqld_port_t;
+	type httpd_t;
+	type default_t;
+	type mysqld_t;
+	class tcp_socket name_connect;
+	class dir { write remove_name read add_name };
+	class file { write getattr read lock create unlink open };
+}
+
+#============= httpd_t ==============
+
+#!!!! This avc can be allowed using one of the these booleans:
+#     httpd_can_network_connect, httpd_can_network_connect_db
+allow httpd_t mysqld_port_t:tcp_socket name_connect;
+
+#============= mysqld_t ==============
+allow mysqld_t default_t:dir { write remove_name read add_name };
+allow mysqld_t default_t:file { write getattr read lock create unlink open };
