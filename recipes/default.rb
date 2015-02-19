@@ -40,7 +40,7 @@ end
 include_recipe "wordpress::database"
 include_recipe "wordpress::security"
 
-::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
+# ::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
 node.set_unless['wordpress']['keys']['auth'] = secure_password
 node.set_unless['wordpress']['keys']['secure_auth'] = secure_password
 node.set_unless['wordpress']['keys']['logged_in'] = secure_password
