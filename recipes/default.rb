@@ -19,11 +19,7 @@
 
 # install setroubleshoot
 
-Chef::Log.warn("*****Warning!!! SElinux will be disabled during setup *****")
 
-execute "selinux disable" do
-    command "setenforce permissive"    
-end
 
 
 include_recipe "php"
@@ -35,6 +31,11 @@ include_recipe "apache2"
 include_recipe "apache2::mod_php5"
 include_recipe "openssl"
 
+Chef::Log.warn("*****Warning!!! SElinux will be disabled during setup *****")
+
+execute "selinux disable" do
+    command "setenforce permissive"    
+end
 
 include_recipe "wordpress::database"
 include_recipe "wordpress::security"
