@@ -17,11 +17,14 @@ end
 
 remote_directory "certificates" do
   path "#{node['wordpress']['dir']}/certificates"
+  recursive true
   action :create
 end
 
+
 remote_directory "selinux_policies" do
   path "#{node['wordpress']['parent_dir']}/selinux_policies"
+  recursive true
   action :create
 end
 
