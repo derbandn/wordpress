@@ -20,7 +20,7 @@
 #
 
 #include_recipe "mysql::client" unless platform_family?('windows') # No MySQL client on Windows
-include_recipe "openssl"
+
 
   mysql_client 'default' do
     action :create

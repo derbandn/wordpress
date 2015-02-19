@@ -29,8 +29,11 @@ include_recipe "php"
 include_recipe "php::module_mysql"
 include_recipe "apache2"
 include_recipe "apache2::mod_php5"
-include_recipe "openssl::upgrade"
 include_recipe "openssl"
+include_recipe "wordpress::database"
+# include_recipe "wordpress::wp_cli"
+# include_recipe "wordpress::security"
+
 
 Chef::Log.warn("*****Warning!!! SElinux will be disabled during setup *****")
 
@@ -38,7 +41,7 @@ execute "selinux disable" do
     command "setenforce permissive"    
 end
 
-include_recipe "wordpress::database"
+
 
 
 ::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
@@ -113,9 +116,7 @@ end
 
 
 
- include_recipe "wordpress::wp_cli"
  
-include_recipe "wordpress::security" 
 
 
 
