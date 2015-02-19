@@ -39,7 +39,7 @@ execute "selinux disable" do
 end
 
 include_recipe "wordpress::database"
-include_recipe "wordpress::security"
+
 
 ::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
 node.set_unless['wordpress']['keys']['auth'] = secure_password
@@ -115,7 +115,7 @@ end
 
  include_recipe "wordpress::wp_cli"
  
- 
+include_recipe "wordpress::security" 
 
 
 
