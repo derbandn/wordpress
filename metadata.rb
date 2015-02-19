@@ -10,7 +10,7 @@ recipe "WordPress", "Installs and configures WordPress LAMP stack on a single sy
 recipe "WordPress::languages", "Install WordPress translation files"
 
 depends "php"
-depends "openssl"
+depends "openssl", "= 2.0.2"
 depends "apache2", ">= 0.99.4"
 depends "mysql", ">= 1.0.5"
 depends "build-essential"
