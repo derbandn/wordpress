@@ -10,12 +10,12 @@ recipe "WordPress", "Installs and configures WordPress LAMP stack on a single sy
 recipe "WordPress::languages", "Install WordPress translation files"
 
 depends "php"
-
+depends "openssl"
 depends "apache2", ">= 0.99.4"
 depends "mysql", ">= 1.0.5"
 depends "build-essential"
 depends "iis", ">= 1.6.2"
-depends "openssl"
+
 
 %w{ debian ubuntu windows centos redhat scientific oracle }.each do |os|
   supports os
