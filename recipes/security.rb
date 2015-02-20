@@ -1,7 +1,4 @@
 
-ruby_block "security setup" do
-  Chef::Log.warn("*****Begining security setup *****")
-end
 
 
 
@@ -50,5 +47,10 @@ end
 execute "selinux setup" do
     cwd "#{node['wordpress']['parent_dir']}/selinux_policies"
     command "semodule -i mysqld-chef.pp && setenforce enforcing"    
+    not_if {"semodule -l|grep mysqld-chef"}
+end
+
+execute "enable selinux" do   
+    command "setenforce enforcing"    
 end
 
